@@ -26,9 +26,9 @@ const postNewUser = (req, res) => {
       message: 'User invalid', fields: {
         "first_name": "string",
         "last_name": "string",
-        "email": "email",
-        "password": "password",
-        "birthday": "date"
+        "email": "string",
+        "password": "string",
+        "birthday": "YYYY/MM/DD"
       }
     })
   }
@@ -51,7 +51,16 @@ const patchUserById = (req, res) => {
   if (data && first_name && last_name && email && password && birthday) {
     res.status(200).json(data)
   } else {
-    res.status(404).json({ message: 'Invalid id' })
+    res.status(404).json({
+      message: 'Invalid id', fields: {
+        "first_name": "string",
+        "last_name": "string",
+        "email": "string",
+        "password": "string",
+        "birthday": "YYYY/MM/DD"
+      }
+    }
+    )
   }
 }
 
