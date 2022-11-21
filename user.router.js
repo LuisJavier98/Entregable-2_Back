@@ -12,4 +12,7 @@ router.get('/users/:id', userServices.getUserById)
 
 router.delete('/users/:id', userServices.deleteUserById)
 
+
+router.patch('/users/:id', userServices.patchUserById)
+
 module.exports = router

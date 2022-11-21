@@ -44,9 +44,21 @@ const deleteUserById = (req, res) => {
   }
 }
 
+const patchUserById = (req, res) => {
+  const { first_name, last_name, email, password, birthday } = req.body
+  id = req.params.id
+  const data = userControllers.patchUser(id, { first_name, last_name, email, password, birthday })
+  if (data && first_name && last_name && email && password && birthday) {
+    res.status(200).json(data)
+  } else {
+    res.status(404).json({ message: 'Invalid id' })
+  }
+}
+
 module.exports = {
   getAllUsers,
   getUserById,
   postNewUser,
-  deleteUserById
+  deleteUserById,
+  patchUserById
 }

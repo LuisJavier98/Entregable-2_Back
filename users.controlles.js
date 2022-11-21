@@ -31,6 +31,16 @@ const deleteUser = (id) => {
   return user
 }
 
+const patchUser = (id, obj) => {
+  const user = users.find(user => id == user.id)
+  user.first_name = obj.first_name
+  user.last_name = obj.last_name
+  user.email = obj.email
+  user.password = obj.password
+  user.birthday = obj.birthday
+  return user
+}
+
 
 
 
@@ -40,5 +50,6 @@ module.exports = {
   findAllUsers,
   findUsersbyId,
   newUser,
-  deleteUser
+  deleteUser,
+  patchUser
 }
